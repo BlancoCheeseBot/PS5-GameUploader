@@ -1,19 +1,27 @@
-# PS5GameUploader (v1.1.0)
+# PS5-GameUploader
 
-PS5GameUploader is a Windows GUI tool for uploading PS5 game folders to a PS5/FTP target and validating an offline license before allowing usage.
+PS5-GameUploader is a lightweight GUI tool for uploading PS5 game folders to a PS5 FTP server with parallel transfers, pause/resume, and optional integrity verification. [web:975]
 
-## What it can do
-- Upload game folders/files via FTP using a simple GUI workflow (select folder → upload). 
-- Load and validate an offline license file (e.g., `license.json`) to enable the application features.
-- Show user-friendly dialogs for information/warnings/errors and an About dialog in the UI. [web:856][web:899]
+## What’s included
+- Python + PySide6 GUI application (desktop) [web:975]
+- License system support (your license file is included with the project) [web:992]
 
-## Typical workflow
-1. Start `PS5GameUploader.exe`
-2. Load your license file (`license.json`)
-3. Configure FTP target (host/IP, port, username, password)
-4. Select a game folder
-5. Start upload and monitor status/log output
+## Features
+- Drag & drop game folders into the app.
+- Browse the remote FTP filesystem (double-click folders to change directory).
+- Upload a selected game folder to the current remote directory.
+- Parallel uploads (up to 4 concurrent file slots).
+- Pause / Resume transfers (resume continues partially uploaded files).
+- Automatic remote folder creation.
+- Optional **Verify after upload (SHA-256)**.
+- Optional **Repair on mismatch** (re-upload if verification fails).
+- Live progress: per-slot progress bars + overall progress + speed/ETA + log output.
 
-## Notes
-- If distributed as a PyInstaller **onedir** build, keep the entire application folder together (don’t move only the `.exe`). [web:548]
-- Never share private signing material (private keys) with end users.
+## Basic usage
+- Start an FTP server on your PS5, then connect from the app (Host/Port/User/Pass).
+- Add a game folder (Browse/Add or Drag & Drop).
+- Select the folder and click **Upload selected**.
+
+## Credits
+by BlancoCheeseBot  
+https://github.com/BlancoCheeseBot/PS5-GameUploader
